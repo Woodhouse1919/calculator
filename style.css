@@ -1,0 +1,79 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(205, 140, 184);
+}
+
+.container {
+    text-align: center;
+}
+
+.title {
+    margin-top: 65px;
+    margin-bottom: 50px;
+    
+}
+
+.calc {
+    background-color: rgb(177, 179, 172, 1);
+    display: inline-block;
+    height: 600px;
+    width: 420px;
+    border: 5px solid black;
+    border-radius: 15px;
+    box-shadow: 20px 30px 40px rgba(0,0,0,0.4);
+}
+
+.display {
+    padding: 35px 20px;
+    text-align: right;
+    font-size: 40px;
+    margin: 35px auto 20px auto;
+    position: relative;
+    border: 3px solid black;
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+}
+
+.button-container {
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1px 3px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 95%;
+    height: 400px;
+}
+
+button {
+    background-color: rgb(209, 212, 208);
+    font-size: 40px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.backspace {
+    background-color: rgb(251, 68, 48);
+}
+
+.clear {
+    background-color:rgb(251, 68, 48);
+}
+
+.operator {
+    background-color: rgb(94, 158, 222);
+}
+
+#zero {
+    grid-column: 1 / 3;
+}
+
+#equals {
+    background-color: rgb(39, 207, 118);
+    grid-row: 6 / 4;
+    grid-column-end: 5;
+}
+
+
