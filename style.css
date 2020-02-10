@@ -54,12 +54,8 @@ button {
     border-radius: 4px;
 }
 
-.backspace {
+.backspace, .clear {
     background-color: rgb(251, 68, 48);
-}
-
-.clear {
-    background-color:rgb(251, 68, 48);
 }
 
 .operator {
