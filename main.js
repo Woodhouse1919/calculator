@@ -1,5 +1,7 @@
 const display = document.querySelector('.display');
 const numbers = document.querySelectorAll('.number');
+const clear = document.querySelector('.clear');
+const backspace = document.querySelector('.backspace');
 
 const add = (a ,b) => a + b;
 const subtract = (a, b) => a - b; 
@@ -33,3 +35,15 @@ numbers.forEach((number) => {
         display.textContent = displayValue;
     });
 });
+
+// clears display when C button clicked
+clear.addEventListener('click', () => {
+    displayValue = [];
+    display.textContent = displayValue;
+})
+
+// removes last number when backspace is clicked
+backspace.addEventListener('click', () => {
+    displayValue = displayValue.slice(0, -1);
+    display.textContent = displayValue;
+})
