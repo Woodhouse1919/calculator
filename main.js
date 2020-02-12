@@ -2,8 +2,10 @@ const display = document.querySelector('.display');
 const numbers = document.querySelectorAll('.number');
 const clear = document.querySelector('.clear');
 const backspace = document.querySelector('.backspace');
+const operators = document.querySelectorAll('.operator')
+const equals = document.querySelector('#equals')
 
-const add = (a ,b) => a + b;
+const add = (a, b) => a + b;
 const subtract = (a, b) => a - b; 
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
@@ -11,19 +13,33 @@ const divide = (a, b) => a / b;
 function operate(operator, a, b) {
     if (operator === add) {
         let answer = add(a, b);
-        return answer;
+        if (b == []) {
+        } else {
+            display.textContent = answer
+        }; 
     } else if (operator === subtract) {
         let answer = subtract(a, b);
-        return answer;
+        if (b == []) {
+        } else {
+            display.textContent = answer
+        }; 
     } else if (operator === multiply) {
         let answer = multiply(a, b);
-        return answer;
+        if (b == []) {
+        } else {
+            display.textContent = answer
+        }; 
     } else if (operator === divide) {
         let answer = divide(a, b);
-        return answer;
+        if (b == []) {
+        } else {
+            display.textContent = answer
+        }
     } 
 } 
-// clicked button gets put into display
+        
+    
+// clicked button gets put into display and updates displayValue variable
 let displayValue = [];
 const updateDisplay = function(number) {
     displayValue = displayValue + number;
@@ -47,3 +63,35 @@ backspace.addEventListener('click', () => {
     displayValue = displayValue.slice(0, -1);
     display.textContent = displayValue;
 })
+
+// main calculator "brain"
+operators.forEach((operator) => {
+    operator.addEventListener('click', (e) => {
+        let firstNum = displayValue;
+        let operator = e.target.textContent;
+        displayValue = [];
+
+            equals.addEventListener('click', () => {
+                secondNum = displayValue;
+                if (operator === '+') {
+                    operate(add, Number(firstNum), Number(secondNum));
+                    secondNum = [];
+                } else if (operator === '-') {
+                    operate(subtract, Number(firstNum), Number(secondNum));
+                    secondNum = [];
+                } else if (operator === 'x') {
+                    operate(multiply, Number(firstNum), Number(secondNum));
+                    secondNum = [];
+                } else if (operator === '÷') {
+                    operate(divide, Number(firstNum), Number(secondNum));
+                    secondNum = [];
+                }
+            })
+    });
+});     
+        
+        
+     
+            
+                
+            
