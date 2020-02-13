@@ -4,6 +4,7 @@ const clear = document.querySelector('.clear');
 const backspace = document.querySelector('.backspace');
 const operators = document.querySelectorAll('.operator')
 const equals = document.querySelector('#equals')
+const decimal = document.querySelector('#decimal');
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b; 
@@ -14,31 +15,48 @@ function operate(operator, a, b) {
     if (operator === add) {
         let answer = add(a, b);
         if (b == []) {
-        } else {
-            display.textContent = answer
+        } else { // this number if statement checks if answer includes decimal then shortens it to 4 places
+            if (Number.isInteger(answer) === false) {
+                display.textContent = answer.toFixed(4);
+         } else { 
+             display.textContent = answer;
+        };
         }; 
     } else if (operator === subtract) {
         let answer = subtract(a, b);
         if (b == []) {
         } else {
-            display.textContent = answer
+            if (Number.isInteger(answer) === false) {
+                display.textContent = answer.toFixed(4);
+         } else { 
+             display.textContent = answer;
+        };
         }; 
     } else if (operator === multiply) {
         let answer = multiply(a, b);
         if (b == []) {
         } else {
-            display.textContent = answer
+            if (Number.isInteger(answer) === false) {
+                display.textContent = answer.toFixed(4);
+         } else { 
+             display.textContent = answer;
+        };
         }; 
     } else if (operator === divide) {
         let answer = divide(a, b);
         if (b == []) {
         } else {
-            display.textContent = answer
-        }
-    } 
-} 
+           if (Number.isInteger(answer) === false) {
+               display.textContent = answer.toFixed(4);
+        } else {
+            display.textContent = answer;
+        };
+        }; 
+    }; 
+};
         
     
+
 // clicked button gets put into display and updates displayValue variable
 let displayValue = [];
 const updateDisplay = function(number) {
@@ -51,6 +69,7 @@ numbers.forEach((number) => {
         display.textContent = displayValue;
     });
 });
+        
 
 // clears display when C button clicked
 clear.addEventListener('click', () => {
@@ -70,9 +89,8 @@ operators.forEach((operator) => {
         let firstNum = displayValue;
         let operator = e.target.textContent;
         displayValue = [];
-
             equals.addEventListener('click', () => {
-                secondNum = displayValue;
+            secondNum = displayValue;
                 if (operator === '+') {
                     operate(add, Number(firstNum), Number(secondNum));
                     secondNum = [];
@@ -86,11 +104,10 @@ operators.forEach((operator) => {
                     operate(divide, Number(firstNum), Number(secondNum));
                     secondNum = [];
                 }
-            })
+        });
     });
 });     
-        
-        
+
      
             
                 
